@@ -1,6 +1,3 @@
-!!!! THIS PACKAGE IS UNMAINTAINED !!!!
-Feel free to fork and start maintaining a copy yourself, we can link here popular forks
-
 # Create CloudFront signed URLs in Laravel
 
 Easy to use Laravel wrapper around the official AWS PHP SDK which allows to sign URLs to access Private Content through CloudFront CDN
