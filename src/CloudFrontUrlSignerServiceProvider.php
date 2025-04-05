@@ -22,7 +22,7 @@ class CloudFrontUrlSignerServiceProvider extends ServiceProvider
     {
         $this->mergeConfigFrom(__DIR__ . '/../config/cloudfront-url-signer.php', 'cloudfront-url-signer');
 
-        $this->app->singleton(UrlSigner::class, function () {
+        $this->app->singleton(Signer::class, function () {
             $config = config('cloudfront-url-signer');
 
             if ($config['key_pair_id'] === '') {
@@ -32,6 +32,6 @@ class CloudFrontUrlSignerServiceProvider extends ServiceProvider
             return new CloudFrontUrlSigner(new \Aws\CloudFront\UrlSigner($config['key_pair_id'], $config['private_key_path']));
         });
 
-        $this->app->alias(UrlSigner::class, 'cloudfront-url-signer');
+        $this->app->alias(Signer::class, 'cloudfront-url-signer');
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-use Dreamonkey\CloudFrontUrlSigner\UrlSigner;
+use Dreamonkey\CloudFrontUrlSigner\Signer;
 
 if (!function_exists('sign')) {
     /**
@@ -13,6 +13,6 @@ if (!function_exists('sign')) {
      */
     function sign(string $url, $expiration = null): string
     {
-        return app(UrlSigner::class)->sign($url, $expiration);
+        return app(Signer::class)->sign($url, $expiration);
     }
 }

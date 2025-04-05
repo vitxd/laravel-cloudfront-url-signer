@@ -5,7 +5,7 @@ namespace Dreamonkey\CloudFrontUrlSigner;
 use DateTime;
 use Dreamonkey\CloudFrontUrlSigner\Exceptions\InvalidExpiration;
 
-class CloudFrontUrlSigner implements UrlSigner
+class CloudFrontUrlSigner implements Signer
 {
     /**
      * CloudFront client object.
