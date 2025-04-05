@@ -1,9 +1,9 @@
 !!!! THIS PACKAGE IS UNMAINTAINED !!!!
 Feel free to fork and start maintaining a copy yourself, we can link here popular forks
 
-# Create CloudFront signed URLs in Laravel 6+
+# Create CloudFront signed URLs in Laravel
 
-Easy to use Laravel 6+ wrapper around the official AWS PHP SDK which allows to sign URLs to access Private Content through CloudFront CDN
+Easy to use Laravel wrapper around the official AWS PHP SDK which allows to sign URLs to access Private Content through CloudFront CDN
 
 Inspired by [laravel-url-signer](https://github.com/spatie/laravel-url-signer)
 
@@ -16,7 +16,7 @@ This is how you can create signed URL that's valid for 30 days:
 
 ```php
 // With Facade
-CloudFrontUrlSigner::sign('https://myapp.com/resource', 30);
+CloudFrontUrlSigner::sign('https://myapp.com/resource', Carbon::now()->addDays(30));
 
 // With helper
 sign('https://myapp.com/resource', 30);
@@ -81,12 +81,7 @@ CloudFrontUrlSigner::sign('https://myapp.com/resource');
 By default the lifetime of an URL is one day. This value can be change in the config-file.
 If you want a custom life time, you can specify the number of days the URL should be valid:
 
-```php
-// The generated URL will be valid for 5 days.
-CloudFrontUrlSigner::sign('https://myapp.com/resource', 5);
-```
-
-For fine grained control, you may also pass a `DateTime` instance as the second parameter. The url
+For fine grained control, you may also pass a `DateTimeInterface` instance as the second parameter. The url
 will be valid up to that moment. This example uses Carbon for convenience:
 
 ```php
